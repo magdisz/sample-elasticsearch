@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="create_table_post" author="magdisz">
+		<createTable tableName="POST">
+			<column name="ID" type="BIGINT" autoIncrement="true">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="TITLE" type="VARCHAR(256)"></column>
+			<column name="TEXT" type="TEXT"></column>
+			<column name="CREATED_DATE" type="TIMESTAMP"></column>
+			<column name="UPDATED_DATE" type="TIMESTAMP"></column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet id="insert_in_table_post" author="magdisz">
+		<insert tableName="POST">
+			<column name="TITLE" value="Default Title 1"></column>
+			<column name="TEXT" value="Default TEXT 1"></column>
+			<column name="CREATED_DATE" valueDate="YYYY-MM-DDThh:mm:ss"
+				value="2016-03-14T16:00:00"></column>
+		</insert>
+		<insert tableName="POST">
+			<column name="TITLE" value="Default Title"></column>
+			<column name="TEXT" value="Default TEXT "></column>
+			<column name="CREATED_DATE" valueDate="YYYY-MM-DDThh:mm:ss"
+				value="2016-03-14T15:10:00"></column>
+		</insert>
+	</changeSet>
+</databaseChangeLog>

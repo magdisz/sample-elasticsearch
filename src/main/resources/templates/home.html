@@ -3,10 +3,83 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <title th:text="#{home.title}">Home</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 </head>
 
 <body>
-	<p th:text="#{home.title}"></p>
+	<!-- Header -->
+	<div th:replace="fragments/header :: header"></div>
+	<!-- / Header -->
+
+	<!-- Page -->
+	<div style="padding: 40px 15px;">
+		<div class="container">
+
+			<!-- List of posts -->
+			<div class="row">
+				<div class="col-md-12" th:if="${!#lists.isEmpty(posts)}">
+					<h1 class="page-header" th:text="#{home.subtitle.list}">List</h1>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th th:text="#{post.title}">Title</th>
+								<th th:text="#{post.createdDate}">Date</th>
+								<th th:text="#{post.text}">Text</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="post : ${posts}">
+								<td th:text="${post.title}"></td>
+								<td th:text="${post.createdDate}"></td>
+								<td th:text="${post.text}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- /List of posts -->
+
+			<!-- Add post -->
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="page-header" th:text="#{home.subtitle.add}">Add
+						Text</h1>
+					<form action="#" th:action="@{/post}" id="addPost"
+						th:object="${post}" method="post">
+						<div class="form-group">
+							<label class="control-label" for="postTitle"
+								th:text="#{post.title}"></label> <input class="form-control"
+								id="postTitle" name="title" type="text"
+								th:placeholder="#{post.title}" th:field="*{title}" />
+							<div class="alert alert-danger"
+								th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="postText"
+								th:text="#{post.text}"></label>
+							<textarea class="form-control" id="postText" name="text"
+								th:placeholder="#{post.text}" rows="6" th:field="*{text}"></textarea>
+							<p th:text="${text}"></p>
+							<div class="alert alert-danger" role="alert"
+								th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></div>
+						</div>
+						<input type="submit" th:value="#{post.add}"
+							class="btn btn-primary" />
+					</form>
+				</div>
+			</div>
+			<!-- /Add post -->
+		</div>
+	</div>
+	<!-- /Page -->
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 
 </html>
