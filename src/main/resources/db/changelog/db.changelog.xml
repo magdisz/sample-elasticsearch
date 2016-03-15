@@ -14,19 +14,5 @@
 			<column name="UPDATED_DATE" type="TIMESTAMP"></column>
 		</createTable>
 	</changeSet>
-	
-	<changeSet id="insert_in_table_post" author="magdisz">
-		<insert tableName="POST">
-			<column name="TITLE" value="Default Title 1"></column>
-			<column name="TEXT" value="Default TEXT 1"></column>
-			<column name="CREATED_DATE" valueDate="YYYY-MM-DDThh:mm:ss"
-				value="2016-03-14T16:00:00"></column>
-		</insert>
-		<insert tableName="POST">
-			<column name="TITLE" value="Default Title"></column>
-			<column name="TEXT" value="Default TEXT "></column>
-			<column name="CREATED_DATE" valueDate="YYYY-MM-DDThh:mm:ss"
-				value="2016-03-14T15:10:00"></column>
-		</insert>
-	</changeSet>
+
 </databaseChangeLog>

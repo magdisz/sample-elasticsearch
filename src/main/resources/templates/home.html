@@ -16,13 +16,31 @@
 	<!-- / Header -->
 
 	<!-- Page -->
-	<div style="padding: 40px 15px;">
+	<div style="padding: 80px 15px;">
 		<div class="container">
+			<div class="row" th:if="${!#strings.isEmpty(error)}">
+				<div class="col-md-12">
+					<div class="alert alert-danger" role="alert" th:text="${error}">...</div>
+				</div>
+			</div>
+			<div class="row" th:if="${#strings.isEmpty(error)}">
+				<div class="col-md-4">
+					<form action="#" th:action="@{/}" id="searchPost" method="get">
+						<div class="form-group">
+							<input class="form-inline" name="searchText" type="text"
+								th:placeholder="#{post.search}" /> <input type="submit"
+								value="Search" class="btn btn-default" />
+						</div>
+					</form>
+				</div>
+			</div>
 
 			<!-- List of posts -->
 			<div class="row">
-				<div class="col-md-12" th:if="${!#lists.isEmpty(posts)}">
+				<div class="col-md-12"
+					th:if="${!#lists.isEmpty(posts) and #strings.isEmpty(error)}">
 					<h1 class="page-header" th:text="#{home.subtitle.list}">List</h1>
+					<p th:text="${error}"></p>
 					<table class="table table-striped">
 						<thead>
 							<tr>
@@ -44,7 +62,7 @@
 			<!-- /List of posts -->
 
 			<!-- Add post -->
-			<div class="row">
+			<div class="row" th:if="${#strings.isEmpty(error)}">
 				<div class="col-md-12">
 					<h1 class="page-header" th:text="#{home.subtitle.add}">Add
 						Text</h1>

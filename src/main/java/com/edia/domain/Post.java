@@ -8,7 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * Post entity class
+ * @author magdisz
+ *
+ */
 @Entity
 public class Post {
 
