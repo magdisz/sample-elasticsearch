@@ -1,7 +1,7 @@
+ EDIA Assignment 
+==========================
 
-### EDIA Assignment ###
-
-**Requirments**
+### Requirments ###
 
    *  Maven (3.2+) 
    *  Java 7
@@ -13,12 +13,16 @@
 2. Unzip the repository
 3. Go to magdisz-edia-* folder
 4. Execute the following command
-       mvn install
+       
+      `mvn install`
+
 5. Run the application with:
-       mvn spring-boot:run
+
+     `mvn spring-boot:run`
+
 6. Open the application in a web browser at http://localhost:8080/
 
-### Technologies use ###
+### Technologies used ###
 
 * Spring Boot, Spring MVC, Spring Data JPA
 * Elasticsearch
