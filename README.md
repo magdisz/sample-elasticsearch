@@ -3,7 +3,7 @@ EDIA Assignment
 
 ### Requirments ###
 
-   *  Maven (3.2+) 
+   *  Maven (3.2+). Installation guide: https://maven.apache.org/install.html
    *  Java 7
  
 
