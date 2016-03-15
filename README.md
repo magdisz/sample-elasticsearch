@@ -1,4 +1,4 @@
- EDIA Assignment 
+EDIA Assignment 
 ==========================
 
 ### Requirments ###
@@ -10,7 +10,7 @@
 ### Steps to run the application ###
 
 1. Go to downloads and download repository
-2. Unzip the repository
+2. Unzip the downloaded zip repository
 3. Go to magdisz-edia-* folder
 4. Execute the following command
        
